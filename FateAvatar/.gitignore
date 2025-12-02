@@ -1,0 +1,14 @@
+weights/*.pth
+weights/*.ckpt
+weights/*.dat
+weights/generic_model.pkl
+weights/spherehead-ckpt-025000.pkl
+weights/*.pt
+
+data/insta
+data/imavatar
+
+workspace/insta
+workspace/imavatar
+
+__pycache__/

@@ -1,0 +1,8 @@
+[submodule "FateAvatar"]
+	path = FateAvatar
+	url = https://github.com/ysshwan147/FateAvatar.git
+	branch = OFERA
+[submodule "mediapipe-blendshapes-to-flame"]
+	path = mediapipe-blendshapes-to-flame
+	url = https://github.com/ysshwan147/mediapipe-blendshapes-to-flame.git
+	branch = OFERA
