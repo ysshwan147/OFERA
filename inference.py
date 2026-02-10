@@ -69,6 +69,8 @@ class Infer:
             self.eyes_mean = stats["eyes_mean"]
             self.eyes_std = stats["eyes_std"]
 
+            self.flame_out_dim = self.model.out_dim - 6 - 12  # expr param dimension
+
 
         # bs_param_names.npy 기준(이름 및 순서) → unity stream data 이름 매핑
         self.mapping_dict = {
@@ -290,6 +292,7 @@ class Infer:
         if self.blendshape_alignment:
             arkit_input = self.meta2mp_model.predict(arkit_input.reshape(1, -1)).flatten()
 
+        flame_out_dim = self.flame_out_dim
 
         if self.infer_type == "mat":
             result = np.dot(arkit_input, self.bs_mat)
@@ -330,9 +333,7 @@ class Infer:
 
             # 역정규화
             expr = np.zeros((self.cfg.model.n_exp,), dtype=np.float32)
-            flame_out_dim = y_pred.shape[0] - 6 - 12
             expr[:flame_out_dim] = y_pred[:flame_out_dim] * self.expr_std + self.expr_mean
-            # print(("flame_out_dim", flame_out_dim))
 
             jaw_pose_6d = y_pred[flame_out_dim:flame_out_dim + 6] * self.jaw_std + self.jaw_mean
             eyes_pose_6d = y_pred[flame_out_dim + 6:] * self.eyes_std + self.eyes_mean  # (12,)

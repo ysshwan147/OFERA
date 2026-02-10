@@ -42,6 +42,12 @@ def _make_trunk(in_dim: int, hidden_dim: int, num_blocks: int) -> nn.Sequential:
 class ARKitToFLAMENet(nn.Module):
     def __init__(self, in_dim: int = 51, hidden_dim: int = 128, out_dim: int = 68, num_blocks: int = 4):
         super().__init__()
+
+        self.in_dim = in_dim
+        self.hidden_dim = hidden_dim
+        self.out_dim = out_dim
+        self.num_blocks = num_blocks
+
         self.trunk = _make_trunk(in_dim, hidden_dim, num_blocks)
         self.head = nn.Linear(hidden_dim, out_dim)
 
