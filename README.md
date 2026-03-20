@@ -94,6 +94,32 @@ python -m pip install -v --no-build-isolation --no-cache-dir -e .
 
 ---
 
+### Weights
+
+Two sets of weights are required for running inference:
+
+#### FateAvatar Weights
+
+Please prepare the required pretrained weights for FateAvatar under `FateAvatar/weights` by following the official FateAvatar installation guide:
+
+[FateAvatar Installation Guide](https://github.com/zjwfufu/FateAvatar/tree/main?tab=readme-ov-file#installation)
+
+#### Mapping Matrix
+
+Please prepare the required predefined matrix for baseline under `weights/`
+
+[PantoMatrix(EMAGE) Repository](https://github.com/PantoMatrix/PantoMatrix?tab=readme-ov-file#2-models-and-tools-list)
+
+#### OFERA Weights
+
+Please place the pretrained OFERA weights under `weights/`.
+
+Download link:
+
+[Google Drive Placeholder](https://drive.google.com/file/d/175jf1luYUYzwZ4Pb13N-UZxc1q8TeSqO/view?usp=sharing)
+
+---
+
 ### Unity Setup
 
 - **Tested Unity Version**: 2021.3.45f1
@@ -191,32 +217,6 @@ python server.py
 | 5 | Ours |
 | T | Expression active |
 | F | Expression deactive |
-
----
-
-### Weights
-
-Two sets of weights are required for running inference:
-
-#### FateAvatar Weights
-
-Please prepare the required pretrained weights for FateAvatar under `FateAvatar/weights` by following the official FateAvatar installation guide:
-
-[FateAvatar Installation Guide](https://github.com/zjwfufu/FateAvatar/tree/main?tab=readme-ov-file#installation)
-
-#### Mapping Matrix
-
-Please prepare the required predefined matrix for baseline under `weights/`
-
-[PantoMatrix(EMAGE) Repository](https://github.com/PantoMatrix/PantoMatrix?tab=readme-ov-file#2-models-and-tools-list)
-
-#### OFERA Weights
-
-Please place the pretrained OFERA weights under `weights/`.
-
-Download link:
-
-[Google Drive Placeholder](https://drive.google.com/file/d/175jf1luYUYzwZ4Pb13N-UZxc1q8TeSqO/view?usp=sharing)
 
 ---
 
