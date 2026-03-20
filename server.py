@@ -80,9 +80,9 @@ def run_server(host='0.0.0.0', port=50051):
         "mat": None,
     }
 
-    weight_path = "weights/2025-08-09_17-26-29"
+    weight_path = "weights/mlp"
     
-    subject_name = "ysh"
+    subject_name = "p_male_3"
 
     for name in models.keys():
         if name == "ours": # Condition 5 (ours)

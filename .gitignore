@@ -79,6 +79,7 @@ logs/
 *.pt
 *.pth
 *.ckpt
+*.npz
 
 # Unrealistically large Unity assets
 Assets/**/Videos/
