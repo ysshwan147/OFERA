@@ -92,8 +92,6 @@ cd diff-gaussian-rasterization
 python -m pip install -v --no-build-isolation --no-cache-dir -e .
 ```
 
----
-
 ### Weights
 
 Two sets of weights are required for running inference:
@@ -117,8 +115,6 @@ Please place the pretrained OFERA weights under `weights/`.
 Download link:
 
 [Google Drive Placeholder](https://drive.google.com/file/d/175jf1luYUYzwZ4Pb13N-UZxc1q8TeSqO/view?usp=sharing)
-
----
 
 ### Unity Setup
 
@@ -189,8 +185,6 @@ Add the following pairs:
   "eyeLookOutRight": 1.0
 }
 ```
-
----
 
 ### Inference
 
