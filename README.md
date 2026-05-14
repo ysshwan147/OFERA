@@ -56,7 +56,7 @@ pip install --extra-index-url https://miropsota.github.io/torch_packages_builder
 ```
 
 
-#### simple-knn
+#### simple-knn / diff-gaussian-rasterization
 
 ```bash
 # Run in Native Tools Command Prompt for VS 2019
@@ -69,27 +69,16 @@ set CXXFLAGS=/O2
 git clone --recursive https://github.com/camenduru/simple-knn.git
 cd simple-knn
 python -m pip install -v --no-build-isolation --no-cache-dir -e .
+
+git clone https://github.com/graphdeco-inria/diff-gaussian-rasterization.git --recursive
+cd diff-gaussian-rasterization
+python -m pip install -v --no-build-isolation --no-cache-dir -e .
 ```
 
 After installation, edit `simple-knn/simple_knn/__init__.py` and add:
 
 ```python
 from . import _C
-```
-
-#### diff-gaussian-rasterization
-
-```bash
-# Run in Native Tools Command Prompt for VS 2019
-set DISTUTILS_USE_SDK=1
-set TORCH_CUDA_ARCH_LIST=8.9
-set FORCE_CUDA=1
-set CUDAFLAGS=--use_fast_math
-set CXXFLAGS=/O2
-
-git clone https://github.com/graphdeco-inria/diff-gaussian-rasterization.git --recursive
-cd diff-gaussian-rasterization
-python -m pip install -v --no-build-isolation --no-cache-dir -e .
 ```
 
 ### Weights
