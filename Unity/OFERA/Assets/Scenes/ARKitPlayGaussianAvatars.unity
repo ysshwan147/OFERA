@@ -2852,6 +2852,7 @@ GameObject:
   - component: {fileID: 2107937480}
   - component: {fileID: 2107937479}
   - component: {fileID: 2107937481}
+  - component: {fileID: 2107937482}
   m_Layer: 0
   m_Name: ARKit2GaussianAvatars
   m_TagString: Untagged
@@ -2907,7 +2908,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107937478}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9825c2fa63dd28e4e85fe9532bf27ff2, type: 3}
   m_Name: 
@@ -2922,3 +2923,26 @@ MonoBehaviour:
   rightEye: {fileID: 373080900}
   start_send: 0
   flame_out_dim: 50
+--- !u!114 &2107937482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107937478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28c0d22d476fe84c93502a20a49ea8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gaussianSplatting: {fileID: 1917464383}
+  serverIP: 127.0.0.1
+  serverPort: 50051
+  sharedMemoryName: Local\GaussianSharedBuffer
+  flame_out_dim: 50
+  headPly: {fileID: 613033178}
+  flameGeneric: {fileID: 791553230}
+  jawBone: {fileID: 1001931719}
+  leftEye: {fileID: 755287656}
+  rightEye: {fileID: 373080900}
+  start_send: 0
