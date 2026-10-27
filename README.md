@@ -36,6 +36,7 @@ The following configuration is the environment we have tested so far for inferen
 
 ```bash
 git clone --recursive https://github.com/ysshwan147/OFERA.git
+cd OFERA
 ```
 
 #### Conda Environment
@@ -60,6 +61,8 @@ pip install --extra-index-url https://miropsota.github.io/torch_packages_builder
 
 ```bash
 # Run in Native Tools Command Prompt for VS 2019
+conda activate ofera
+
 set DISTUTILS_USE_SDK=1
 set TORCH_CUDA_ARCH_LIST=8.9
 set FORCE_CUDA=1
@@ -69,10 +72,12 @@ set CXXFLAGS=/O2
 git clone --recursive https://github.com/camenduru/simple-knn.git
 cd simple-knn
 python -m pip install -v --no-build-isolation --no-cache-dir -e .
+cd ..
 
 git clone https://github.com/graphdeco-inria/diff-gaussian-rasterization.git --recursive
 cd diff-gaussian-rasterization
 python -m pip install -v --no-build-isolation --no-cache-dir -e .
+cd ..
 ```
 
 After installation, edit `simple-knn/simple_knn/__init__.py` and add:
@@ -95,7 +100,7 @@ Please prepare the required pretrained weights for FateAvatar under `FateAvatar/
 
 Please prepare the required predefined matrix for baseline under `weights/`
 
-[PantoMatrix(EMAGE) Repository](https://github.com/PantoMatrix/PantoMatrix?tab=readme-ov-file#2-models-and-tools-list)
+[Mapping Matrix from EMAGE](https://huggingface.co/datasets/haiyangliu0/BEAT2_Tools/blob/main/mat_final.npy)
 
 #### OFERA Weights
 
@@ -103,7 +108,7 @@ Please place the pretrained OFERA weights under `weights/`.
 
 Download link:
 
-[Google Drive Placeholder](https://drive.google.com/file/d/175jf1luYUYzwZ4Pb13N-UZxc1q8TeSqO/view?usp=sharing)
+[Download Pretrained Weights](https://drive.google.com/file/d/175jf1luYUYzwZ4Pb13N-UZxc1q8TeSqO/view?usp=sharing)
 
 ### Unity Setup
 
@@ -126,7 +131,7 @@ git clone -b OFERA https://github.com/ysshwan147/GaussianSplattingVRViewerUnity.
 Copy the plugin directory below into the Unity project:
 
 ```text
-GaussianSplattingVRViewer/Assets/GaussianSplattingPlugin
+GaussianSplattingVRViewerUnity/GaussianSplattingVRViewer/Assets/GaussianSplattingPlugin
 → Unity/OFERA/Assets/
 ```
 

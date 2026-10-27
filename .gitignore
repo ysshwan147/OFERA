@@ -85,3 +85,5 @@ logs/
 Assets/**/Videos/
 Assets/**/NersembleClip/
 Assets/**/GaussianSplattingPlugin/
+
+submodules/

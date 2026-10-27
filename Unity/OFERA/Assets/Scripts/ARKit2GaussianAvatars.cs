@@ -31,8 +31,7 @@ public class ARKit2GaussianAvatars : MonoBehaviour
 
     public int flame_out_dim = 50;
 
-    public string defaultModel = "ours";  // 시작 시 선택할 모델 이름
-    private string currentModel = null;
+    [SerializeField] private string currentModel = null;
 
     private Dictionary<string, StreamedData> initCache = new();   // 모델명 -> init 데이터
     private Dictionary<string, int> modelIds = new();             // 모델명 -> modelId
@@ -41,6 +40,9 @@ public class ARKit2GaussianAvatars : MonoBehaviour
     [SerializeField] private GameObject characterAvatarLeftEye;
     [SerializeField] private GameObject characterAvatarRightEye;
     [SerializeField] private GameObject characterAvatarMouth;
+
+    [SerializeField]
+    private bool hideCharacterAvatar = true;
 
     public struct StreamedData
     {
@@ -244,18 +246,21 @@ public class ARKit2GaussianAvatars : MonoBehaviour
 
         currentModel = name;
 
-        if (characterAvatar == null)
+        if (hideCharacterAvatar)
         {
-            characterAvatar = GameObject.Find("BlendshapeMappingExampleARKIT_A2E - Mirrored_NormalRecalc");
+            if (characterAvatar == null)
+            {
+                characterAvatar = GameObject.Find("BlendshapeMappingExampleARKIT_A2E - Mirrored_NormalRecalc");
+            }
+            if (characterAvatar == null)
+            {
+                characterAvatar = GameObject.Find("BlendshapeMappingExampleARKIT_A2E - Mirrored");
+            }
+            characterAvatar.SetActive(false);
+            characterAvatarLeftEye.SetActive(false);
+            characterAvatarRightEye.SetActive(false);
+            characterAvatarMouth.SetActive(false);
         }
-        if (characterAvatar == null)
-        {
-            characterAvatar = GameObject.Find("BlendshapeMappingExampleARKIT_A2E - Mirrored");
-        }
-        characterAvatar.SetActive(false);
-        characterAvatarLeftEye.SetActive(false);
-        characterAvatarRightEye.SetActive(false);
-        characterAvatarMouth.SetActive(false);
 
         UnityEngine.Debug.Log($"[{name}] active 완료");
     }

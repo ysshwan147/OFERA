@@ -40,17 +40,18 @@ class Infer:
 
         assert len(self.bs_names) == 51, f"Expected 51 ARKit blendshapes, got {len(self.bs_names)}"
 
+        self.flame_out_dim = 50     # expr param dimension
 
         print("Loading model...")
         # for mat
         if infer_type == "mat":
-            bs_mat_path = ".\weights\mat_final.npy"
+            bs_mat_path = os.path.join(ROOT, "weights", "mat_final.npy")
             self.bs_mat = np.load(bs_mat_path)
 
         # for mp2flame
         elif infer_type == "mp2flame":
-            self.mp2flame = MP_2_FLAME(mappings_path='./mediapipe-blendshapes-to-flame/mappings', index=1)
-        
+            self.mp2flame = MP_2_FLAME(mappings_path=os.path.join(ROOT, "mediapipe-blendshapes-to-flame", "mappings"), index=1)
+
         # for mlp
         elif infer_type == "mlp":
             self.model = ARKitToFLAMENet(hidden_dim=128, num_blocks=4).to(self.device)
@@ -68,8 +69,6 @@ class Infer:
             self.jaw_std = stats["jaw_std"]
             self.eyes_mean = stats["eyes_mean"]
             self.eyes_std = stats["eyes_std"]
-
-            self.flame_out_dim = self.model.out_dim - 6 - 12  # expr param dimension
 
 
         # bs_param_names.npy 기준(이름 및 순서) → unity stream data 이름 매핑
@@ -183,7 +182,7 @@ class Infer:
 
         # init
         self.cwd = os.getcwd()
-        os.chdir("FateAvatar")
+        os.chdir(FATE_ROOT)
 
         self.config = "./config/fateavatar.yaml"
         self.model_name = "FateAvatar"
@@ -353,7 +352,7 @@ class Infer:
 
         # FateAvatar
         self.cwd = os.getcwd()
-        os.chdir("FateAvatar")
+        os.chdir(FATE_ROOT)
 
         self.flame_exp_param = torch.from_numpy(expr).to(self.device)
         self.flame_pose_param[6:9] = torch.from_numpy(jaw_pose).to(self.device)
